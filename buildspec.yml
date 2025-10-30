@@ -12,7 +12,8 @@ phases:
     commands:
       - echo Build started on `date`
       - npm run build || echo "No build script found, continuing..."
-  post_build:
+      - npm test || echo "no tests, continuing" 
+ post_build:
     commands:
       - echo Running tests...
       - npm test || echo "No tests found, continuing..."
