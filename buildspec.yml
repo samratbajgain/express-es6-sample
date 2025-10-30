@@ -3,8 +3,9 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      nodejs: 16
+      nodejs: 18
     commands:
+      - nmp install -g npm@9
       - echo Installing dependencies...
       - npm install
   build:
