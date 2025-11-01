@@ -1,20 +1,14 @@
-import express from 'express';
-import path from 'path';
-import cookieParser from 'cookie-parser';
-import logger from 'morgan';
+const express = require('express');
+const app = express();
 
-import indexRouter from './routes/index';
-import usersRouter from './routes/users';
+app.get('/', (_req, res) => {
+  res.send('Welcome to Express');
+});
 
-var app = express();
+const port = process.env.PORT || 3000;   // EB injects PORT
+const host = '0.0.0.0';                  // listen on all interfaces
+app.listen(port, host, () => {
+  console.log(`Server running on http://${host}:${port}`);
+});
 
-app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, '../public')));
-
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-
-export default app;
+module.exports = app;
