@@ -41,7 +41,7 @@
     "testEnvironment": "node"
   },
   "scripts": {
-    "start": "node app.js",
+    "start": "node server/app.js",
     "build": "npm run clean && npm run transpile",
     "server": "node ./dist-server/bin/www",
     "dev": "NODE_ENV=development npm run server",
